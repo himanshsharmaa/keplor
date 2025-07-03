@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 220 13% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 13% 95%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 13% 95%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 13% 98%;
+    --secondary: 262 83% 68%;
+    --secondary-foreground: 220 13% 98%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 13% 63%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 13% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 13% 98%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    /* Fallback for browsers that don't support bg-clip-text */
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Fallback color for unsupported browsers */
+    color: hsl(var(--primary));
+  }
+  
+  /* Ensure gradient text works properly */
+  @supports not (background-clip: text) {
+    .text-gradient {
+      background: none;
+      color: hsl(var(--primary));
+    }
+  }
+  
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-primary transition-all duration-300;
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+}
