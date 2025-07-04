@@ -43,8 +43,7 @@ A modern AI SaaS platform built with Next.js, providing intelligent automation t
 ## Connect with Keplor
 
 - **LinkedIn**: [linkedin.com/company/keplor](https://linkedin.com/company/keplor)
-- **Website**: [keplor.ai](https://keplor.ai)
-- **Support**: support@keplor.ai
+- **Website**: [keplor.ai](https://keplor.vercel.app/)
 
 ## Project Structure
 
